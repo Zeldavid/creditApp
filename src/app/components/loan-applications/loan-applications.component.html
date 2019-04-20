@@ -1,15 +1,10 @@
-<!-- <ul>
-  <li *ngFor="let item of users">
-    {{item.id}}
-  </li>
-</ul> -->
 <div class="d-flex flex-wrap justify-content-center">
   <div *ngFor="let item of users" [ngClass]="getClass(item)" class="card border-primary d-flex col-sm-3 m-3 p-0" style="max-width: 18rem;">
-    <div class="card-header">{{ item.stateLoan }}</div>
+    <div class="card-header">{{ item.loanState }}</div>
     <div class="card-body">
       <h5 class="card-title">{{item.name}}</h5>
       <p class="card-text">$ {{ item.loan }}</p>
-      <p class="card-text">{{ item.isLoanPayed }}</p>
+      <p class="card-text">{{ item.paidState }}</p>
     </div>
   </div>
 </div>

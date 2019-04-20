@@ -19,8 +19,8 @@ module.exports = () => {
       name: `user${i}`,
       email: `user${i}@email.com`,
       loan: randomLoan,
-      stateLoan: randomBoolean,
-      isLoanpayed: paidCredit
+      loanState: randomBoolean,
+      paidState: paidCredit
     });
   }
   return data;
