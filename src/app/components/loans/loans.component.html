@@ -1,3 +1,4 @@
+<h2 class="d-flex flex-wrap justify-content-center">Apply for a loan</h2>
 <div class="d-flex flex-wrap justify-content-center">
   <form class="col-sm-8" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
     <div class="form-row">
@@ -11,9 +12,9 @@
             id="name"
             placeholder="Nombre"
             formControlName="name"
-            [ngClass]="{ 'is-invalid': submitted && form.name.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.name.errors }"
           />
-          <div *ngIf="submitted && form.name.errors" class="invalid-feedback">
+          <div *ngIf="isSubmitted && form.name.errors" class="invalid-feedback">
             <div *ngIf="form.name.errors.required">Name is required</div>
           </div>
         </div>
@@ -31,9 +32,9 @@
             id="email"
             placeholder="Email"
             formControlName="email"
-            [ngClass]="{ 'is-invalid': submitted && form.email.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.email.errors }"
           />
-          <div *ngIf="submitted && form.email.errors" class="invalid-feedback">
+          <div *ngIf="isSubmitted && form.email.errors" class="invalid-feedback">
             <div *ngIf="form.email.errors.required">Email is required</div>
             <div *ngIf="form.email.errors.email">
               Email must be a valid email address
@@ -54,9 +55,9 @@
             id="id"
             placeholder="Id"
             formControlName="id"
-            [ngClass]="{ 'is-invalid': submitted && form.id.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.id.errors }"
           />
-          <div *ngIf="submitted && form.id.errors" class="invalid-feedback">
+          <div *ngIf="isSubmitted && form.id.errors" class="invalid-feedback">
             <div *ngIf="form.id.errors.required">Id is required</div>
           </div>
         </div>
@@ -70,14 +71,18 @@
           <input
             required
             type="number"
+            minlength="5"
+            maxlength="6"
             class="form-control"
             id="loan"
             placeholder="Amount"
             formControlName="loan"
-            [ngClass]="{ 'is-invalid': submitted && form.loan.errors }"
+            [ngClass]="{ 'is-invalid': isSubmitted && form.loan.errors }"
           />
-          <div *ngIf="submitted && form.loan.errors" class="invalid-feedback">
+          <div *ngIf="isSubmitted && form.loan.errors" class="invalid-feedback">
             <div *ngIf="form.loan.errors.required">Amount is required</div>
+            <div *ngIf="form.loan.errors.minlength">The minimun loan value is $10.000</div>
+            <div *ngIf="form.loan.errors.maxlength">The maximum loan value is $100.000</div>
           </div>
         </div>
       </div>

@@ -11,6 +11,7 @@ import {
 import { environment } from "../../../environments/environment";
 import { User } from "src/app/interfaces/user.interface";
 import { LoansService } from "src/app/services/loans.service";
+import { InputNumberValidator } from 'src/app/validators/input-number.validator';
 
 @Component({
   selector: "app-loans",
@@ -43,7 +44,7 @@ export class LoansComponent implements OnInit {
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       id: ['', Validators.required],
-      loan: ['', Validators.required],
+      loan: ['', [Validators.required, InputNumberValidator]],
       paidState: [false]
     });
   }
@@ -60,6 +61,7 @@ export class LoansComponent implements OnInit {
 
   loanStudy() {
     debugger;
+    console.log(this.profileForm.controls.name.errors)
     this.isSubmitted = true;
     if (this.profileForm.invalid) {
       return;
