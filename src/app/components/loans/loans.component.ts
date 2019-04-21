@@ -71,6 +71,7 @@ export class LoansComponent implements OnInit {
     this.modalStyle = 'block';
 
     this.loanStudyResult = Math.random() > 0.5 ? true : false;
+    this.amount = this.amount - this.profileForm.controls.loan.value;
     if (this.loanStudyResult) {
       this.state = 'Approved';
       this.formCopy = { ...this.profileForm.value, loanState: this.state };

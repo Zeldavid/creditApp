@@ -33,10 +33,11 @@ export class LoanApplicationsComponent implements OnInit {
   }
 
   paidState(item) {
+    debugger;
     if (item.paidState) {
-      this.paidStateClass = 'text-danger';
       return 'The loan status is paid';
     } else {
+      // this.paidStateClass = 'text-danger';
       return 'The loan status is not paid';
     }
   }
